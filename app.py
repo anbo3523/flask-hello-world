@@ -65,7 +65,7 @@ def selecting():
     return response_string
 
 @app.route('/db_drop')
-def dropping()
+def dropping():
     conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
