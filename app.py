@@ -1,4 +1,4 @@
-import psycopg2
+import psycopg
 from flask import Flask
 app = Flask(__name__)
 
@@ -8,13 +8,13 @@ def hello_world():
 
 @app.route('/db_test')
 def testing():
-    conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
+    conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     conn.close()
     return "Database Connection Successful"
 
 @app.route('/db_create')
 def creating():
-    conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
+    conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
     CREATE TABLE IF NOT EXISTS Basketball(
@@ -31,7 +31,7 @@ def creating():
 
 @app.route('/db_insert')
 def inserting():
-    conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
+    conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
         INSERT INTO Basketball (First, Last, City, Name, Number)
@@ -47,7 +47,7 @@ def inserting():
 
 @app.route('/db_select')
 def selecting():
-    conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
+    conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
         SELECT * FROM Basketball;
@@ -66,7 +66,7 @@ def selecting():
 
 @app.route('/db_drop')
 def dropping():
-    conn = psycopg2.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
+    conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
         DROP TABLE Basketball;
