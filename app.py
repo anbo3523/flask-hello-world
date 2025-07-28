@@ -69,7 +69,7 @@ def dropping():
     conn = psycopg.connect("postgresql://hello_word_database_user:9JMau27WnwffUfKOeKY3K2jjBvSbbAPL@dpg-d23rne6mcj7s739mn3sg-a/hello_word_database")
     cur = conn.cursor()
     cur.execute('''
-        DROP TABLE Basketball;
+        DROP TABLE IF EXISTS Basketball;
         ''')
     conn.commit()
     conn.close()
